@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "mirror-e56a"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "mirror-e56a"
+  template:
+    metadata:
+      labels:
+        app: "mirror-e56a"
+    spec:
+      containers:
+        - name: "mirror-e56a"
+          image: "mirror2.azurecr.io/mirror"
+          ports:
+          - containerPort: 80
