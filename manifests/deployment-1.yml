@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "mirror-a360"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "mirror-a360"
+  template:
+    metadata:
+      labels:
+        app: "mirror-a360"
+    spec:
+      containers:
+        - name: "mirror-a360"
+          image: "mirrorpro.azurecr.io/mirror"
+          ports:
+          - containerPort: 80
